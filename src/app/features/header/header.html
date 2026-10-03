@@ -1,0 +1,15 @@
+<!-- Interpolation -->
+<h1>{{property1}}</h1>
+<p>{{1+2}}</p>
+<p>{{1 + methodeA()}}</p>
+
+<!-- Property Binding -->
+<button [disabled]="property2">Envoyer</button>
+
+<!-- Event Binding -->
+<button (click)="methodeB()">Envoyer</button>
+<p>{{message}}</p>
+
+<!-- Two-Way Binding -->
+<input [(ngModel)]="property3" />
+<p>{{property3}}</p>

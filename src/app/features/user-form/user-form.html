@@ -1,0 +1,62 @@
+<div class="form-container">
+
+  <h3>Ajouter un utilisateur</h3>
+
+  <!-- Message succès -->
+  <p *ngIf="successMessage" style="color: green;">
+    {{ successMessage }}
+  </p>
+
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+
+    <!-- NAME -->
+    <div> 
+      <label>Nom :</label><br>
+      <input
+        type="text"
+        name="name"
+        [(ngModel)]="user.name"
+        required
+        #name="ngModel"
+      >
+
+      <!-- Validation -->
+      <small style="color:red" *ngIf="name.invalid && name.touched">
+        Le nom est obligatoire
+      </small>
+    </div>
+
+    <br>
+
+    <!-- EMAIL -->
+    <div>
+      <label>Email :</label><br>
+      <input
+        type="email"
+        name="email"
+        [(ngModel)]="user.email"
+        required
+        email
+        #email="ngModel"
+      >
+
+      <!-- Validation -->
+      <small style="color:red" *ngIf="email.invalid && email.touched">
+        Email invalide
+      </small>
+    </div>
+
+    <br>
+
+    <!-- BUTTON -->
+    <button type="submit" [disabled]="f.invalid">
+      Ajouter
+    </button>
+
+    <button type="button" (click)="f.reset()">
+      Annuler
+    </button>
+
+  </form>
+
+</div>

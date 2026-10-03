@@ -1,0 +1,33 @@
+
+<p>Reactive Form :</p>
+<form [formGroup]="userReactiveForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Name:</label>
+    <input id="name" formControlName="name" />
+    <div *ngIf="userReactiveForm.get('name')?.invalid &&
+      (userReactiveForm.get('name')?.dirty || userReactiveForm.get('name')?.touched)"
+      class="error-message">
+      <div *ngIf="userReactiveForm.get('name')?.hasError('required')">
+        Name is required.
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <label for="email">Email:</label>
+    <input id="email" formControlName="email" />
+    <div class="error-message" *ngIf="userReactiveForm.get('email')?.invalid &&
+      (userReactiveForm.get('email')?.touched || userReactiveForm.get('email')?.dirty)">
+      <div *ngIf="userReactiveForm.get('email')?.hasError('required')">
+        Email is required.
+      </div>
+      <div *ngIf="userReactiveForm.get('email')?.hasError('email')">
+        Please enter a valid email.
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="userReactiveForm.invalid">Submit</button>
+</form>
+
+<style>.error-message { color: red; font-size: 0.8em; }</style>

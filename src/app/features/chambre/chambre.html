@@ -1,0 +1,20 @@
+<p>chambre works!</p>
+<div>
+  <h2>Liste des Chambres</h2>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Numéro</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let chambre of listChambres">
+        <td>{{chambre.idChambre}}</td>
+        <td>{{chambre.numeroChambre}}</td>
+        <td>{{chambre.typeC}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
